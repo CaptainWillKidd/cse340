@@ -4,3 +4,283 @@
 *:after {
   box-sizing: border-box;
 }
+
+header{
+  background: #004080;
+  color: #fff;
+  padding: 1rem 0;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  text-decoration: none;
+}
+
+.top-header {
+  margin: 0;
+  font-size: 1.5rem;
+} 
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f5f7fa;
+  color: #222;
+  line-height: 1.5;
+}
+
+.background {
+  background: #e0e7ff;
+  padding: 1rem 0;
+  border-radius: 0 0 20px 20px;
+}
+
+/* HERO SECTION */
+.hero {
+  background: #004080;
+  color: #fff;
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+  border-radius: 0 0 20px 20px;
+  position: relative;
+}
+
+.hero-text h1 {
+  margin: 0 0 0.5rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.hero-text p {
+  margin-bottom: 1rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  background: #ffb300;
+  color: #222;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.2s;
+}
+.cta-btn:hover,
+.cta-btn:focus {
+  background: #ffa000;
+  color: #fff;
+}
+
+.hero-img {
+  width: 80%;
+  max-width: 250px;
+  margin: 1.5rem auto 0 auto;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* UPGRADES SECTION */
+.upgrades {
+  margin: 2rem 0 1rem 0;
+  padding: 0 1rem;
+}
+.upgrades h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.upgrades-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.upgrade-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  padding: 1rem;
+  text-align: center;
+  width: 130px;
+}
+.upgrade-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 0.5rem;
+}
+.upgrade-item a {
+  display: block;
+  color: #004080;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 0.5rem;
+}
+.upgrade-item a:hover,
+.upgrade-item a:focus {
+  text-decoration: underline;
+}
+
+/* VEHICLES SECTION */
+.vehicles {
+  margin: 2rem 0 2rem 0;
+  padding: 0 1rem;
+}
+.vehicles h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.vehicles-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.vehicle-item {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+  padding: 1rem;
+  text-align: center;
+  width: 160px;
+}
+.vehicle-item img {
+  width: 100%;
+  max-width: 120px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 6px;
+  margin-bottom: 0.5rem;
+}
+.vehicle-item h3 {
+  margin: 0.5rem 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+.vehicle-item p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* FOOTER */
+footer {
+  background: #004080;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+  border-radius: 20px 20px 0 0;
+}
+footer .copyright {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Estilo para o header */
+header#top-header {
+  background: #004080;
+  color: #fff;
+  padding: 1rem 0.5rem;
+  text-align: center;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.siteName a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+#tools {
+  margin-top: 0.5rem;
+}
+
+#tools a {
+  color: #ffb300;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+#tools a:hover,
+#tools a:focus {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Navigation */
+nav[aria-label="Main navigation"] {
+  margin-top: 0.5rem;
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-list li {
+  margin: 0;
+}
+
+.nav-list a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.3rem 0.8rem;
+  border-radius: 5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nav-list a:hover,
+.nav-list a:focus {
+  background: #ffb300;
+  color: #222;
+}
+
+/* RESPONSIVE DESIGN */
+@media screen and (min-width: 700px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    padding: 3rem 2rem 2rem 2rem;
+  }
+  .hero-text {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  .hero-img {
+    flex: 1;
+    max-width: 350px;
+    margin: 0;
+  }
+  .upgrades-list,
+  .vehicles-list {
+    gap: 2rem;
+  }
+  .upgrade-item,
+  .vehicle-item {
+    width: 180px;
+  }
+  header#top-header {
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 2rem;
+    text-align: center;
+  }
+  .siteName {
+    margin: 0;
+  }
+  nav[aria-label="Main navigation"] {
+    margin-top: 0.5rem;
+  }
+}
