@@ -1,12 +1,12 @@
 const invModel = require("../models/inventory-model")
-const utilities = require("../utilities/")
+const utilities = require("../utilities")
 
-const invCont = {}
+const invController = {}
 
 /* ***************************
  *  Build inventory by classification view
  * ************************** */
-invCont.buildByClassificationId = async function (req, res, next) {
+invController.buildByClassificationId = async function (req, res, next) {
   const classification_id = req.params.classificationId
   const data = await invModel.getInventoryByClassificationId(classification_id)
   const grid = await utilities.buildClassificationGrid(data)
@@ -19,4 +19,26 @@ invCont.buildByClassificationId = async function (req, res, next) {
   })
 }
 
-module.exports = invCont
+/* ***************************
+ *  Build inventory detail view
+ * ************************** */
+invController.buildDetailView = async function(req, res, next) {
+  const invId = req.params.invId
+  const nav = await utilities.getNav()
+  const data = await invModel.getInventoryById(invId)
+  if (!data) {
+    return next({status: 404, message: "Vehicle not found"})
+  }
+  const detail = utilities.buildDetailView(data)
+  const title = `${data.inv_make} ${data.inv_model}`
+  res.render("inventory/detail", { title, nav, detail })
+}
+
+/* ***************************
+ *  Trigger intentional server error
+ * ************************** */
+invController.triggerError = function(req, res, next) {
+  next(new Error("Intentional Server Error for testing purposes"))
+}
+
+module.exports = invController
