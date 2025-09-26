@@ -3,6 +3,7 @@ const express = require("express")
 const router = new express.Router()
 const utilities = require("../utilities")
 const accountController = require("../controllers/accountController")
+const validate = require('../utilities/account-validation')
 
 // Route for "My Account" page
 router.get(
@@ -25,6 +26,8 @@ router.get(
 // Registration POST route
 router.post(
   "/register",
+  validate.registrationRules(),
+  validate.checkRegData,
   utilities.handleErrors(accountController.registerAccount)
 )
 
