@@ -1,5 +1,6 @@
   const utilities = require("../utilities/")
   const accountModel = require("../models/account-model")
+  const bcrypt = require("bcryptjs")
 
   /* ****************************************
   *  Deliver login view
@@ -32,31 +33,17 @@
   async function registerAccount(req, res) {
   let nav = await utilities.getNav()
   const { account_firstname, account_lastname, account_email, account_password } = req.body
-  const errors = []
 
-  if (!account_firstname || account_firstname.trim() === '') {
-    errors.push('First name is required.')
-  }
-
-  if (!account_lastname || account_lastname.trim() === '') {
-    errors.push('Last name is required.')
-  }
-
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-  if (!account_email || !emailRegex.test(account_email)) {
-    errors.push('A valid email is required.')
-  }
-
-  const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$/
-  if (!account_password || !passwordRegex.test(account_password)) {
-    errors.push('Password must be at least 12 characters, include 1 uppercase letter, 1 number, and 1 special character.')
-  }
-
-  if (errors.length > 0) {
-    return res.status(400).render("account/register", {
-      title: "Register",
+  // Hash the password before storing
+  let hashedPassword
+  try {
+    hashedPassword = await bcrypt.hashSync(account_password, 10)
+  } catch (error) {
+    req.flash("notice", 'Sorry, there was an error processing the registration.')
+    return res.status(500).render("account/register", {
+      title: "Registration",
       nav,
-      messages: errors
+      errors: null,
     })
   }
 
@@ -64,7 +51,7 @@
     account_firstname,
     account_lastname,
     account_email,
-    account_password
+    hashedPassword
   )
 
   if (regResult) {
@@ -83,6 +70,7 @@
     })
   }
 }
+
 
 
   module.exports = { buildLogin, buildRegister, registerAccount }
