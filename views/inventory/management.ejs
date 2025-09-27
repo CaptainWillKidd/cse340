@@ -1,0 +1,18 @@
+<Section class="management-main">
+    <h1>Inventory Management</h1>
+
+    <% if (messages && Array.isArray(messages) && messages.length > 0) { %>
+        <div class="flash-message">
+        <% messages.forEach(msg => { %>
+            <p><%= msg %></p>
+        <% }) %>
+        </div>
+    <% } %>
+
+    <nav class="management-links">
+        <ul>
+        <li><a href="/inv/add-classification">Add New Classification</a></li>
+        <li><a href="/inv/add-inventory">Add New Inventory Item</a></li>
+        </ul>
+        </nav>
+</Section>

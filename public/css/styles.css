@@ -538,3 +538,50 @@ nav[aria-label="Main navigation"] a:focus {
   background: #ffb300;
   color: #222;
 }
+
+/* === Inventory Forms === */
+.add-inventory-main form,
+.add-classification-main form {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 0.75rem 1rem;
+  max-width: 700px;
+  margin: 1.5rem auto;
+  padding: 1rem;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.add-inventory-main label,
+.add-classification-main label {
+  font-weight: bold;
+  align-self: center;
+}
+
+.add-inventory-main input,
+.add-inventory-main textarea,
+.add-inventory-main select,
+.add-classification-main input {
+  width: 100%;
+  padding: 0.4rem;
+  border: 1px solid #999;
+  border-radius: 4px;
+}
+
+.add-inventory-main button,
+.add-classification-main button {
+  grid-column: span 2;
+  padding: 0.6rem;
+  background-color: #004080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.add-inventory-main button:hover,
+.add-classification-main button:hover {
+  background-color: #0066cc;
+}
