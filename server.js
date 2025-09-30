@@ -17,6 +17,7 @@ const utilities = require("./utilities")
 const session = require("express-session")
 const pool = require('./database/')
 const flash = require("connect-flash")
+const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
 
 app.set("view engine", "ejs")
@@ -26,6 +27,8 @@ app.set("layout", "./layouts/layout") // not at views root
 /* ***********************
  * Middleware
  * ************************/
+app.use(cookieParser())
+
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
     createTableIfMissing: true,
@@ -45,6 +48,8 @@ app.use(function(req, res, next){
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
+
+app.use(utilities.checkJWTToken)
 
 /* ***********************
  * Routes
