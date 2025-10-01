@@ -99,7 +99,11 @@ async function accountLogin(req, res) {
       } else {
         res.cookie("jwt", accessToken, { httpOnly: true, secure: true, maxAge: 3600 * 1000 })
       }
+      if (accountData.account_type === "Employee" || accountData.account_type === "Admin") {
+      return res.redirect("/inv/")
+      } else {
       return res.redirect("/account/")
+      }
     }
     else {
       req.flash("message notice", "Please check your credentials and try again.")

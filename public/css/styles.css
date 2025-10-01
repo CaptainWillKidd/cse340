@@ -585,3 +585,206 @@ nav[aria-label="Main navigation"] a:focus {
 .add-classification-main button:hover {
   background-color: #0066cc;
 }
+
+/* ===== Inventory Management Table ===== */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+}
+
+#inventoryDisplay thead {
+  background-color: #f4f4f4;
+  text-align: left;
+}
+
+#inventoryDisplay th,
+#inventoryDisplay td {
+  padding: 0.75rem 1rem;
+  border: 1px solid #ddd;
+}
+
+#inventoryDisplay tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+#inventoryDisplay tr:hover {
+  background-color: #f1f1f1;
+}
+
+#inventoryDisplay a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+#inventoryDisplay a:hover {
+  text-decoration: underline;
+  color: #004999;
+}
+
+noscript {
+  display: block;
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: #ffecec;
+  border: 1px solid #ff9999;
+  color: #cc0000;
+  font-weight: bold;
+}
+
+/* ===== Account Management Page ===== */
+.management-main {
+  max-width: 600px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+  text-decoration: none;
+}
+
+.management-main h1 {
+  margin-bottom: 1rem;
+}
+
+.welcome-msg {
+  font-size: 1.1rem;
+  margin: 1.5rem 0;
+  color: #004080;
+  font-weight: bold;
+}
+
+.management-links {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btn-link {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background-color: #004080;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn-link:hover {
+  background-color: #ffb300;
+  color: #222;
+}
+
+.btn-link.logout {
+  background-color: #a00;
+}
+
+.btn-link.logout:hover {
+  background-color: #e60000;
+  color: #fff;
+}
+
+/* ==== Edit Inventory Page ==== */
+.edit-inventory-main {
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.edit-inventory-main h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.edit-inventory-main form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.edit-inventory-main label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+.edit-inventory-main input,
+.edit-inventory-main textarea,
+.edit-inventory-main select {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.edit-inventory-main input:focus,
+.edit-inventory-main textarea:focus,
+.edit-inventory-main select:focus {
+  border-color: #0077cc;
+  outline: none;
+}
+
+.edit-inventory-main textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.edit-inventory-main button {
+  background: #0077cc;
+  color: #fff;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.edit-inventory-main button:hover {
+  background: #005fa3;
+}
+
+.edit-inventory-main .flash-message {
+  background: #eaf7ea;
+  border: 1px solid #a6d8a6;
+  color: #2c662d;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.edit-inventory-main .notice {
+  background: #fdeaea;
+  border: 1px solid #e0a1a1;
+  color: #a94442;
+  padding: 0.75rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+  list-style: inside square;
+}
+
+.edit-inventory-main a {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #0077cc;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.edit-inventory-main a:hover {
+  text-decoration: underline;
+}

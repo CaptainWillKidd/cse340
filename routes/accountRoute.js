@@ -8,8 +8,10 @@ const validate = require('../utilities/account-validation')
 // Route for "My Account" page
 router.get(
   "/", 
+  utilities.checkLogin, 
   utilities.handleErrors(accountController.buildAccount)
 )
+
 
 // Login GET route
 router.get(

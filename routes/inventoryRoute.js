@@ -1,4 +1,5 @@
 // Needed Resources 
+const utilities = require("../utilities")
 const express = require("express")
 const router = new express.Router() 
 const invController = require("../controllers/invController")
@@ -32,6 +33,24 @@ router.post(
   validate.inventoryRules(),
   validate.checkInventory,
   invController.addInventory
+)
+
+router.get(
+  "/getInventory/:classification_id",
+  invController.getInventoryJSON
+)
+
+router.get(
+  "/edit/:invId",
+  utilities.handleErrors(invController.buildEditInventory)
+)
+
+// Update Inventory
+router.post(
+  "/update",
+  validate.inventoryRules(),
+  validate.checkUpdateData,
+  utilities.handleErrors(invController.updateInventory)
 )
 
 module.exports = router;
