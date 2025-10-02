@@ -1,0 +1,31 @@
+<section class="delete-inventory-main">
+     <h1><%= title %></h1>
+
+  <% if (messages && messages.length > 0) { %>
+    <div class="flash-message">
+      <% messages.forEach(msg => { %><p><%= msg %></p><% }) %>
+    </div>
+  <% } %>
+
+  <p>⚠ Confirm Deletion - The delete is permanent.</p>
+
+  <form id="deleteForm" action="/inv/delete" method="post">
+    <input type="hidden" name="inv_id" value="<%= inv_id %>">
+
+    <label for="inv_make">Make</label>
+    <input id="inv_make" name="inv_make" type="text" readonly value="<%= inv_make %>">
+
+    <label for="inv_model">Model</label>
+    <input id="inv_model" name="inv_model" type="text" readonly value="<%= inv_model %>">
+
+    <label for="inv_year">Year</label>
+    <input id="inv_year" name="inv_year" type="number" readonly value="<%= inv_year %>">
+
+    <label for="inv_price">Price</label>
+    <input id="inv_price" name="inv_price" type="text" readonly value="<%= inv_price %>">
+
+    <button type="submit">Delete Vehicle</button>
+  </form>
+
+  <p><a href="/inv">Back to management</a></p>
+</section>

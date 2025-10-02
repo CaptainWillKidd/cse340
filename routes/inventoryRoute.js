@@ -15,42 +15,62 @@ router.get("/error-test", (req, res, next) => {
 })
 
 // Management
-router.get("/", invController.buildManagement)
+router.get("/", 
+  utilities.checkLogin, 
+  utilities.checkEmployeeOrAdmin, 
+  invController.buildManagement)
 
 // Add Classification
-router.get("/add-classification", invController.buildAddClassification)
+router.get("/add-classification", 
+  utilities.checkLogin, 
+  utilities.checkEmployeeOrAdmin, 
+  invController.buildAddClassification)
 router.post(
   "/add-classification",
+  utilities.checkLogin,
+  utilities.checkEmployeeOrAdmin,
   validate.classificationRules(),
   validate.checkClassification,
   invController.addClassification
 )
 
 // Add Inventory
-router.get("/add-inventory", invController.buildAddInventory)
+router.get("/add-inventory", 
+  utilities.checkLogin, 
+  utilities.checkEmployeeOrAdmin, 
+  invController.buildAddInventory)
 router.post(
   "/add-inventory",
+  utilities.checkLogin,
+  utilities.checkEmployeeOrAdmin,
   validate.inventoryRules(),
   validate.checkInventory,
   invController.addInventory
 )
 
-router.get(
-  "/getInventory/:classification_id",
-  invController.getInventoryJSON
-)
+// Edit
+router.get("/edit/:invId", 
+  utilities.checkLogin,
+  utilities.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.buildEditInventory))
 
-router.get(
-  "/edit/:invId",
-  utilities.handleErrors(invController.buildEditInventory)
-)
-
-// Update Inventory
-router.post(
-  "/update",
+// Update
+router.post("/update",
+  utilities.checkLogin,
+  utilities.checkEmployeeOrAdmin,
   validate.inventoryRules(),
   validate.checkUpdateData,
-  utilities.handleErrors(invController.updateInventory)
-)
+  utilities.handleErrors(invController.updateInventory))
+
+// Delete
+router.get("/delete/:inv_id", 
+  utilities.checkLogin,
+  utilities.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.buildDeleteConfirm))
+
+router.post("/delete", 
+  utilities.checkLogin,
+  utilities.checkEmployeeOrAdmin,
+  utilities.handleErrors(invController.deleteInventoryItem))
 
 module.exports = router;
