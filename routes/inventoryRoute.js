@@ -14,6 +14,9 @@ router.get("/error-test", (req, res, next) => {
   require("../controllers/invController").triggerError(req, res, next)
 })
 
+router.get("/getInventory/:classification_id", invController.getInventoryJSON);
+
+
 // Management
 router.get("/", 
   utilities.checkLogin, 
