@@ -1,19 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
-  let goButton = document.getElementById("goButton")
   let classificationList = document.getElementById("classificationList")
   let inventoryDisplay = document.getElementById("inventoryDisplay")
-
-  if (goButton && classificationList && inventoryDisplay) {
-    goButton.addEventListener("click", function () {
-      let classification_id = classificationList.value
-      console.log(`classification_id is: ${classification_id}`)
-
-      fetch("/inv/getInventory/" + classification_id)
-        .then(res => res.json())
-        .then(data => buildInventoryList(data))
-        .catch(err => console.log("There was a problem: ", err.message))
-    })
-  }
 
   function buildInventoryList(data) {
     if (!data || data.length === 0) {
@@ -38,5 +25,22 @@ document.addEventListener("DOMContentLoaded", function() {
     dataTable += "</tbody>"
 
     inventoryDisplay.innerHTML = dataTable
+  }
+
+  function fetchInventory(classification_id) {
+    fetch("/inv/getInventory/" + classification_id)
+      .then(res => res.json())
+      .then(data => buildInventoryList(data))
+      .catch(err => console.log("There was a problem: ", err.message))
+  }
+
+  if (classificationList) {
+    classificationList.addEventListener("change", function() {
+      fetchInventory(this.value)
+    })
+
+    if (classificationList.value) {
+      fetchInventory(classificationList.value)
+    }
   }
 })
