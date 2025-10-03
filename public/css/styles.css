@@ -940,3 +940,123 @@ noscript {
   margin-bottom: 1rem;
   color: #cf1322;
 }
+
+.wishlist-btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  background: #0077cc;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.wishlist-btn:hover {
+  background: #005fa3;
+}
+
+.wishlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1.5rem;
+}
+.wishlist-table th, .wishlist-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+.wishlist-table th {
+  background-color: #f2f2f2;
+}
+.wishlist-table img {
+  border-radius: 6px;
+}
+
+/* === Wishlist Page === */
+.wishlist-main {
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  text-align: center;
+}
+
+.wishlist-main h1 {
+  color: #004080;
+  margin-bottom: 1.5rem;
+}
+
+.wishlist-main .flash-message {
+  background: #e6f7ff;
+  border: 1px solid #91d5ff;
+  color: #005fa3;
+  padding: 0.8rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+}
+
+.wishlist-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.wishlist-table th, .wishlist-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+}
+
+.wishlist-table th {
+  background-color: #f2f2f2;
+  color: #004080;
+}
+
+.wishlist-table tr:nth-child(even) {
+  background-color: #fafafa;
+}
+
+.wishlist-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.wishlist-empty {
+  color: #555;
+  font-style: italic;
+  margin-top: 1rem;
+}
+
+/* Remove button */
+.remove-btn {
+  background: #dc3545;
+  color: #fff;
+  padding: 0.5rem 0.8rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.remove-btn:hover {
+  background: #b02a37;
+}
+
+/* Back to Account button */
+.wishlist-main .btn-link {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background-color: #004080;
+  color: #fff;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+}
+
+.wishlist-main .btn-link:hover {
+  background-color: #ffb300;
+  color: #222;
+}
+

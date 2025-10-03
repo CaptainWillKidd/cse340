@@ -40,13 +40,22 @@ invController.buildByClassificationId = async function (req, res, next) {
 invController.buildDetailView = async function(req, res, next) {
   const invId = req.params.invId
   const nav = await utilities.getNav()
-  const data = await invModel.getInventoryById(invId)
-  if (!data) {
-    return next({status: 404, message: "Vehicle not found"})
+  const vehicle = await invModel.getInventoryById(invId)
+
+  if (!vehicle) {
+    return next({ status: 404, message: "Vehicle not found" })
   }
-  const detail = utilities.buildDetailView(data)
-  const title = `${data.inv_make} ${data.inv_model}`
-  res.render("inventory/detail", { title, nav, detail })
+
+  const title = `${vehicle.inv_make} ${vehicle.inv_model}`
+
+  res.render("inventory/detail", {
+    title,
+    nav,
+    vehicle,
+    detail: utilities.buildDetailView(vehicle),
+    errors: null,
+    messages: req.flash("notice")
+  })
 }
 
 /* ***************************

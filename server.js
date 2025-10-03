@@ -19,6 +19,7 @@ const pool = require('./database/')
 const flash = require("connect-flash")
 const cookieParser = require("cookie-parser")
 const bodyParser = require("body-parser")
+const wishlistRoute = require("./routes/wishlistRoute")
 
 app.set("view engine", "ejs")
 app.use(expressLayouts)
@@ -65,6 +66,9 @@ app.use("/inv", inventoryRoute)
 
 // Account routes
 app.use("/account", accountRoute)
+
+// Wishlist routes
+app.use("/wishlist", wishlistRoute)
 
 // File Not Found Route - must be last route in list
 app.use(async (req, res, next) => {

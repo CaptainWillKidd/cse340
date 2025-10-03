@@ -1,4 +1,6 @@
-<h1>Account Management</h1>
+<div class="management-links">
+  <h1>Account Management</h1>
+</div>
 
 <% if (messages && messages.length > 0) { %>
   <div class="flash-message">
@@ -16,11 +18,12 @@
   </ul>
 <% } %>
 
-<h2>Welcome <%= accountData.account_firstname %></h2>
-
-<a href="/account/update/<%= accountData.account_id %>">Update Account Information</a>
-
-<% if (accountData.account_type === "Employee" || accountData.account_type === "Admin") { %>
+<div class="management-links">
+  <h2>Welcome <%= accountData.account_firstname %></h2>
+  <a href="/account/update/<%= accountData.account_id %>" class="btn-link">Update Account Information</a>
+  <a href="/wishlist/" class="btn-link">My Wishlist</a>
+  <% if (accountData.account_type === "Employee" || accountData.account_type === "Admin") { %>
   <h3>Inventory Management</h3>
-  <p><a href="/inv/">Go to Inventory Management</a></p>
-<% } %>
+  <p><a href="/inv/" class="btn-link">Go to Inventory Management</a></p>
+  <% } %>
+</div>

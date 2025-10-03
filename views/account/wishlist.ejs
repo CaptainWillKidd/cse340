@@ -1,0 +1,67 @@
+<div class="wishlist-main">
+  <h1>My Wishlist</h1>
+
+  <% if (messages && messages.length > 0) { %>
+  <div class="flash-message">
+    <% messages.forEach(msg => { %>
+      <p><%= msg %></p>
+    <% }) %>
+  </div>
+  <% } %>
+
+  <% if (wishlist && wishlist.length > 0) { %>
+  <table class="wishlist-table">
+    <thead>
+      <tr>
+        <th>Vehicle</th>
+        <th>Year</th>
+        <th>Price</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% wishlist.forEach(item => { %>
+      <tr data-inv-id="<%= item.inv_id %>">
+        <td><%= item.inv_make %> <%= item.inv_model %></td>
+        <td><%= item.inv_year %></td>
+        <td>$<%= item.inv_price.toLocaleString() %></td>
+        <td>
+          <button class="remove-btn">Remove</button>
+        </td>
+      </tr>
+      <% }) %>
+    </tbody>
+  </table>
+  <% } else { %>
+  <p>Your wishlist is empty.</p>
+  <% } %>
+
+  <a href="/account" class="btn-link">Back to Account</a>
+</div>
+
+<script>
+document.querySelectorAll('.remove-btn').forEach(btn => {
+  btn.addEventListener('click', async function () {
+    const row = this.closest('tr');
+    const invId = row.dataset.invId;
+
+    try {
+      const res = await fetch(`/wishlist/remove/${invId}`, {
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' }
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        row.remove();
+      } else {
+        alert(data.message);
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Error removing item.');
+    }
+  });
+});
+</script>

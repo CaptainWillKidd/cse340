@@ -1,2 +1,15 @@
+<% if (locals.loggedin) { %>
+  <a class="wishlist-btn" href="/wishlist/add/<%= vehicle.inv_id %>">Add to Wishlist</a>
+<% } %>
 
-  <%- detail %>
+<div>
+  <%- detail %> 
+</div>
+
+<% if (messages && messages.length > 0) { %>
+  <div class="flash-message">
+    <% messages.forEach(msg => { %>
+      <p><%= msg %></p>
+    <% }) %>
+  </div>
+<% } %>
